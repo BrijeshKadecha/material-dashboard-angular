@@ -1,5 +1,19 @@
 <div class="main-content">
   <div class="container-fluid">
+    <div class="row">
+        <div class="col-md-4" *ngFor="let tool of tools">
+            <a class="nav-link" [routerLink]="[tool.path]">
+            <div class="card card-chart">
+                <div class="card-header card-header-success">
+                    <h4 class="card-title text-uppercase">{{tool.title}}</h4>
+                </div>
+                <div class="card-body">
+                    <p class="card-category">{{tool.desc}}</p>
+                </div>
+            </div>
+        </a>
+        </div>
+    </div>
       <div class="row">
           <div class="col-lg-3 col-md-6 col-sm-6">
               <div class="card card-stats">

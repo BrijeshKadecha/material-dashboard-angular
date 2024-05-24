@@ -1,12 +1,27 @@
 import { Component, OnInit } from '@angular/core';
 import * as Chartist from 'chartist';
 
+declare interface RouteInfo {
+  path: string;
+  title: string;
+  desc: string;
+  icon: string;
+  class: string;
+}
+export const ROUTES: RouteInfo[] = [
+  { path: '/currency-converter', title: 'Currency Calculator', desc: 'Covert your currency to other',  icon: 'dashboard', class: '' },
+  { path: '/table-list', title: 'dashboard', desc: 'dashboard',  icon: 'dashboard', class: '' },
+  { path: '/news', title: 'news', desc: 'news',  icon: 'news', class: '' },
+];
+
 @Component({
   selector: 'app-dashboard',
   templateUrl: './dashboard.component.html',
   styleUrls: ['./dashboard.component.css']
 })
 export class DashboardComponent implements OnInit {
+
+  tools: any[];
 
   constructor() { }
   startAnimationForLineChart(chart){
@@ -66,6 +81,8 @@ export class DashboardComponent implements OnInit {
       seq2 = 0;
   };
   ngOnInit() {
+
+    this.tools = ROUTES.filter(tool => tool);
       /* ----------==========     Daily Sales Chart initialization For Documentation    ==========---------- */
 
       const dataDailySalesChart: any = {

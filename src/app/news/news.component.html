@@ -1,0 +1,24 @@
+<div class="main-content">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-4" *ngFor="let article of articles">
+                <div class="card card-chart">
+                    <div class="card-header card-header-success">
+                        <img src={{article.urlToImage}} style="width: 100%;">
+                    </div>
+                    <div class="card-body">
+                        <h4 class="card-title">{{article.title}}</h4>
+                        <p class="card-category">Author: {{article.author}}</p>
+                        <p class="card-category">Published At : {{article.publishedAt}}</p>
+                    </div>
+                    <div class="card-footer">
+                        <div class="stats">
+                            News from {{article.source.name}}
+                        </div>
+                        <button mat-raised-button class="btn btn-info" (click)="onViewMore(article.id)">VIEW MORE</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
